@@ -1,0 +1,26 @@
+{
+  "index": {
+    "title": "Home",
+    "display": "hidden"
+  },
+  "about": {
+    "title": "About Us",
+    "type": "page"
+  },
+  "services": {
+    "title": "Our Services",
+    "type": "page"
+  },
+  "case-studies": {
+    "title": "Case Studies",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "type": "page"
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page"
+  }
+}
