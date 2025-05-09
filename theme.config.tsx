@@ -207,19 +207,19 @@ const config: DocsThemeConfig = {
           background: transparent;
         }
         .nextra-nav-container nav a {
-          color: white;
+          color rgba(20, 111, 202, 0.1);
         }
         .nextra-nav-container nav a:hover {
           color: var(--brand-orange);
         }
         .nextra-nav-container .nextra-search {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(20, 111, 202, 0.1);
         }
         .nextra-nav-container .nextra-search input {
           color: white;
         }
         .nextra-nav-container .nextra-search input::placeholder {
-          color: rgba(255, 255, 255, 0.7);
+          color: rgba(20, 111, 202, 0.1);
         }
       `}</style>
     </>
