@@ -160,41 +160,66 @@ const config: DocsThemeConfig = {
         :root {
           --nextra-primary-hue: 210;
           --nextra-primary-saturation: 100%;
+          --brand-orange: #ff9045;
+          --brand-blue: #146fca;
+          --brand-red: #ff0000;
         }
         .dark {
           --nextra-primary-hue: 210;
           --nextra-primary-saturation: 100%;
         }
         a {
-          color: #2643d3;
+          color: var(--brand-blue);
+          transition: color 0.3s ease;
         }
         a:hover {
-          color: #1c2237;
+          color: var(--brand-orange);
         }
         .nextra-nav-container {
-          border-bottom: 1px solid rgba(28, 34, 55, 0.1);
+          border-bottom: 1px solid rgba(20, 111, 202, 0.1);
+          background: linear-gradient(to right, var(--brand-blue), var(--brand-orange));
         }
         .nextra-sidebar-container {
-          border-right: 1px solid rgba(28, 34, 55, 0.1);
+          border-right: 1px solid rgba(20, 111, 202, 0.1);
         }
         .nextra-toc {
-          border-left: 1px solid rgba(28, 34, 55, 0.1);
+          border-left: 1px solid rgba(20, 111, 202, 0.1);
         }
         .nextra-breadcrumb {
-          color: #1c2237;
+          color: var(--brand-blue);
         }
         .nextra-breadcrumb a {
-          color: #2643d3;
+          color: var(--brand-blue);
         }
         .nextra-breadcrumb a:hover {
-          color: #ce3c59;
+          color: var(--brand-orange);
         }
         .nextra-button {
-          background-color: #2643d3;
+          background-color: var(--brand-blue);
           color: white;
+          transition: all 0.3s ease;
         }
         .nextra-button:hover {
-          background-color: #1c2237;
+          background-color: var(--brand-orange);
+          transform: translateY(-2px);
+        }
+        .nextra-nav-container nav {
+          background: transparent;
+        }
+        .nextra-nav-container nav a {
+          color: white;
+        }
+        .nextra-nav-container nav a:hover {
+          color: var(--brand-orange);
+        }
+        .nextra-nav-container .nextra-search {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        .nextra-nav-container .nextra-search input {
+          color: white;
+        }
+        .nextra-nav-container .nextra-search input::placeholder {
+          color: rgba(255, 255, 255, 0.7);
         }
       `}</style>
     </>
