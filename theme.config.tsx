@@ -1,11 +1,36 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Link from 'next/link'
 
 const config: DocsThemeConfig = {
   logo: (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <img src="/static/soltech-logo.bmp" alt="SolTech Hub Logo" style={{ width: '40px', height: '40px' }} />
-      <span>SolTech Hub</span>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      padding: '0.5rem',
+      transition: 'transform 0.3s ease'
+    }}>
+      <img 
+        src="/static/soltech-logo.png" 
+        alt="SolTech Hub Logo" 
+        style={{
+          width: '45px',
+          borderRadius: '40%',
+          height: '45px',
+          objectFit: 'contain',
+          transition: 'filter 0.3s ease'
+        }}
+      />
+      <span style={{
+        fontFamily: 'Poppins, sans-serif',
+        fontWeight: 'bold',
+        fontSize: '1.25rem',
+        color: '#1c2237',
+        transition: 'color 0.3s ease'
+      }}>
+        SolTech Hub
+      </span>
     </div>
   ),
   project: {
@@ -17,8 +42,92 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/soltechhub',
   footer: {
     text: (
-      <div className="flex w-full flex-col items-center sm:items-start">
-        <p className="mt-6 text-xs">
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1.5rem',
+        padding: '2rem 0',
+        width: '100%',
+        backgroundColor: '#f8f9fa'
+      }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem'
+        }}>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              transition: 'transform 0.3s ease',
+              cursor: 'pointer',
+              padding: '0.5rem'
+            }}>
+              <img 
+                src="/static/soltechb.png" 
+                alt="SolTech Hub Logo" 
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '40%',
+                  objectFit: 'contain',
+                  transition: 'filter 0.3s ease'
+                }}
+              />
+              <span style={{
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                color: '#1c2237',
+                transition: 'color 0.3s ease'
+              }}>
+                SolTech Hub
+              </span>
+            </div>
+          </Link>
+        </div>
+        <div style={{
+          display: 'flex',
+          gap: '2rem',
+          marginTop: '0.5rem'
+        }}>
+          <a 
+            href="https://github.com/soltechhub" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              color: '#2643d3',
+              textDecoration: 'none',
+              transition: 'color 0.3s ease',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }}
+          >
+            GitHub
+          </a>
+          <a 
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=solomonmukonda0@gmail.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              color: '#2643d3',
+              textDecoration: 'none',
+              transition: 'color 0.3s ease',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }}
+          >
+            Contact
+          </a>
+        </div>
+        <p style={{
+          fontSize: '0.875rem',
+          color: '#1c2237',
+          margin: 0,
+          marginTop: '0.5rem'
+        }}>
           © {new Date().getFullYear()} SolTech Hub. All rights reserved.
         </p>
       </div>
@@ -43,10 +152,54 @@ const config: DocsThemeConfig = {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="SolTech Hub" />
       <meta property="og:description" content="Innovative Software Solutions for Modern Businesses" />
-      <link rel="icon" href="/static/soltech-logo.bmp" />
+      <link rel="icon" href="/static/favicon.ico" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+      <style>{`
+        :root {
+          --nextra-primary-hue: 210;
+          --nextra-primary-saturation: 100%;
+        }
+        .dark {
+          --nextra-primary-hue: 210;
+          --nextra-primary-saturation: 100%;
+        }
+        a {
+          color: #2643d3;
+        }
+        a:hover {
+          color: #1c2237;
+        }
+        .nextra-nav-container {
+          border-bottom: 1px solid rgba(28, 34, 55, 0.1);
+        }
+        .nextra-sidebar-container {
+          border-right: 1px solid rgba(28, 34, 55, 0.1);
+        }
+        .nextra-toc {
+          border-left: 1px solid rgba(28, 34, 55, 0.1);
+        }
+        .nextra-breadcrumb {
+          color: #1c2237;
+        }
+        .nextra-breadcrumb a {
+          color: #2643d3;
+        }
+        .nextra-breadcrumb a:hover {
+          color: #ce3c59;
+        }
+        .nextra-button {
+          background-color: #2643d3;
+          color: white;
+        }
+        .nextra-button:hover {
+          background-color: #1c2237;
+        }
+      `}</style>
     </>
   ),
-  primaryHue: 210, // Blue color scheme
+  primaryHue: 210,
   primarySaturation: 100,
   navigation: {
     prev: true,
