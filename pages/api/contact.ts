@@ -10,17 +10,28 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' })
   }
 
   // Validate environment variables
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_TO) {
-    console.error('Missing required environment variables:', {
-      EMAIL_USER: !!process.env.EMAIL_USER,
-      EMAIL_PASS: !!process.env.EMAIL_PASS,
-      EMAIL_TO: !!process.env.EMAIL_TO
-    })
+    console.error('Missing required environment variables')
     return res.status(500).json({
       success: false,
       message: 'Server configuration error. Please contact the administrator.'
@@ -47,13 +58,18 @@ export default async function handler(
       })
     }
 
-    // Create transporter
+    // Create transporter with more reliable configuration
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     })
 
     // Verify transporter configuration
